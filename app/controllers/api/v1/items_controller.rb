@@ -14,8 +14,11 @@ class Api::V1::ItemsController < ApplicationController
   # def create
   # end
   #
-  # def update
-  # end
+  def update
+    current_user = User.find(params[:id])
+    current_user.update(borrower_id: current_user.id)
+    render json: user
+  end
   #
   # def destroy
   # end
