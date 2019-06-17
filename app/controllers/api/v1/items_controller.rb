@@ -15,9 +15,16 @@ class Api::V1::ItemsController < ApplicationController
   # end
   #
   def update
-    current_user = User.find(params[:id])
-    current_user.update(borrower_id: current_user.id)
-    render json: user
+    # 1
+    item = Item.find(params[:id])
+    byebug
+    # 2 check params and if the data is correct
+    # 3 update w those params
+    # 4 rails console check that the row has been successfully updated
+    # 5 move on
+    # current_user = User.find(params[:id])
+    # current_user.update(borrower_id: current_user.id)
+    render json: item
   end
   #
   # def destroy

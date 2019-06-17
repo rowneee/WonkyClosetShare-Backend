@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_133846) do
     t.string "description"
     t.string "category"
     t.string "img_url"
+    t.string "status", default: "Not Borrowed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
