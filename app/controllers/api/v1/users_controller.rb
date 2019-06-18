@@ -37,6 +37,7 @@ class Api::V1::UsersController < ApplicationController
     user_items = Item.where(owner_id: params[:id])
     # filter by status pending
     filtered_user_items = user_items.select {|item| item.status == "Pending"}
+    byebug
     # render json with those items
     render json: filtered_user_items
     # get all items that belong to the user
