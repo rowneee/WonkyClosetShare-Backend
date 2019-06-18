@@ -4,5 +4,5 @@ class User < ApplicationRecord
   has_many :owners, through: :owning_users
   has_many :borrowing_users, foreign_key: :borrower_id, class_name: 'Link'
   has_many :borrowers, through: :borrowing_users
-
+  has_many :items
 end

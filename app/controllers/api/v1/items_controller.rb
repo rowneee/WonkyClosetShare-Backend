@@ -1,5 +1,5 @@
 class Api::V1::ItemsController < ApplicationController
-  # skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index]
 
   def index
     items = Item.all
@@ -17,15 +17,13 @@ class Api::V1::ItemsController < ApplicationController
   def update
     # 1
     item = Item.find(params[:id])
-    byebug
     # 2 check params and if the data is correct
     # 3 update w those params
+    item.update(status: params[:status], borrower_id: params[:borrower_id])
     # 4 rails console check that the row has been successfully updated
-    # 5 move on
-    # current_user = User.find(params[:id])
-    # current_user.update(borrower_id: current_user.id)
     render json: item
   end
+
   #
   # def destroy
   # end
