@@ -5,11 +5,6 @@ class Api::V1::UsersController < ApplicationController
   def index
     users = User.all
     render json: users
-    # current_user_likes = current_user.liked_users
-    # @users = User.all.select do |user|
-    #   user.id != current_user.id && !current_user_likes.include?(user)
-    # end
-    # @rando = @users.sample
   end
 
   def show
@@ -19,13 +14,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    # if @user.valid?
-      # redirect_to users_path
     render json: user
-    # else
-    #   # redirect_to sign_up_path
-    #   render json:
-    # end
   end
 
   def show_pending_items
@@ -42,30 +31,13 @@ class Api::V1::UsersController < ApplicationController
     render json: filtered_user_items
     # get all items that belong to the user
   end
-  #
-  #
-  #
-  # def sign_up
-  #   @user = User.new
-  # end
-  #
-  # def edit
-  # end
-  #
+
   # def update
   #   @user.update(user_params)
   #   redirect_to users_path
   # end
-  #
-  # def destroy
-  #   @user.destroy
-  #   redirect_to root_path
-  # end
 
 private
-  # def find_user
-  #   @user = User.find(params[:id])
-  # end
 
   def user_params
     params.require(:user).permit(:name,:password,:gender,:username)
